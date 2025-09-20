@@ -1,0 +1,12 @@
+name: utm_science_engagement_map
+title: utm_science_engagement_map
+username: marvinmburu
+account: marvinmburu
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 14383980
+bundleId: 10031993
+url: https://marvinmburu.shinyapps.io/utm_science_engagement_map/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

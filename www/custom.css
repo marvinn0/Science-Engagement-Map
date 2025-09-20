@@ -1,0 +1,163 @@
+/* Modern table look */
+
+/* Style for "Science Engagement Initiatives in Africa" */
+.map-title {
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #6699cc;
+}
+
+.subtitle {
+  text-align: center;
+  font-weight: bold;
+  color: #2aa145;
+}
+
+
+/* The background behind the tables that wraps them */
+.dataTables_wrapper {
+    font-family: 'Inter', sans-serif;
+    padding: 20px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+/* The actual Table */
+table.dataTable {
+    border-radius: 5px;
+    overflow: hidden;
+    background: #ffffff;
+    border-collapse: collapse;
+    border: 0px;
+}
+
+/* Header style of the placeholder table */
+table.dataTable thead th {
+    background-color: #ffffff;
+    color: #333 !important;   /* text on the header that says "message" */
+    padding: 12px;
+    font-weight: 600;
+}
+
+/* Row style */
+table.dataTable tbody tr {
+    transition: background 0.28s ease-in-out;
+}
+
+/* Hover effect */
+table.dataTable tbody tr:hover {
+    background-color: #F0F8FF;
+}
+
+/* Pagination buttons */
+.dataTables_paginate .paginate_button {
+    background: #f8f9fa !important;
+    color: #333 !important;
+    border-radius: 8px !important;
+    margin: 2px;
+    padding: 5px 10px;
+    border: 1px solid #ddd !important;
+    transition: all 0.28s;
+}
+
+/* Pagination Hover */
+.dataTables_paginate .paginate_button:hover {
+    background: #76ABDF !important;
+}
+
+/* Active Page */
+.dataTables_paginate .paginate_button.current {
+    background: #6699CC !important;
+    border: none !important;
+}
+
+table.dataTable tbody {
+    background-color: #ffffff !important;
+}
+
+/* Data Table */
+#initiative_table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+/* Style the 'Disclaimer for external links' text link */
+#show_disclaimer {
+  color: #696969; /* Dim Gray - similar to your original attempt */
+  font-size: 14px;
+  font-weight: 'light'; /* Or use 'light', 'bold', etc. */
+  text-decoration: none; /* Remove underline */
+  transition: color 0.28s ease-in-out, text-decoration 0.28s ease-in-out; /* Smooth hover effect */
+  display: inline-block; /* Helps with margin/padding if needed */
+  margin-top: 0px; /* don't Add some space above the link */
+}
+
+/* Style the link on hover */
+#show_disclaimer:hover {
+  color: #696969; /* don't Darken text on hover */
+  text-decoration: none; /* Remove underline on hover */
+}
+
+
+/* Style the modal content box */
+.modal-content {
+  border-radius: 10px; /* More rounded corners */
+  border: 1px solid #ccc; /* Softer border */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15); /* Nicer shadow */
+}
+
+/* Style the modal header - Cleaner Look */
+.modal-header {
+  background-color: #ffffff; /* Clean white background */
+  color: #333;
+  border-bottom: 1px solid #f0f0f0; /* Very subtle separator */
+  border-top-left-radius: 10px; /* Match content corners */
+  border-top-right-radius: 10px; /* Match content corners */
+  padding: 15px 20px; /* Standard padding */
+}
+
+.modal-title {
+  font-weight: 600; /* Slightly bolder title */
+  font-size: 16px;
+}
+
+/* Style the modal body */
+.modal-body {
+  padding: 20px 25px; /* Adjust padding */
+  color: #444; /* Slightly darker body text */
+  font-size: 14px; /* Slightly smaller */
+  line-height: 1.6;
+  background-color: #ffffff; /* Ensure white background */
+}
+
+/* Style the modal footer - Cleaner Look */
+.modal-footer {
+  background-color: #ffffff; /* white background */
+  border-top: 1px solid #f0f0f0; /* Very subtle separator */
+  padding: 12px 20px; /* Adjust padding */
+  border-bottom-left-radius: 10px; /* Match content corners */
+  border-bottom-right-radius: 10px; /* Match content corners */
+}
+
+/* Style the default 'Close' button in the footer */
+.modal-footer .btn-default {
+  background-color: #6699CC; /* Bootstrap primary blue */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 8px 15px;
+  transition: background-color 0.28s ease;
+}
+
+.modal-footer .btn-default:hover {
+  background-color: #6699CC; /* don't change colour on hover */
+}
+
+/* Style the modal backdrop (remove dimming) */
+.modal-backdrop {
+  display: none !important; /* Hide the dark overlay */
+}
