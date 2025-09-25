@@ -1,35 +1,8 @@
-library(tidyverse)
-initiatives <- read_csv("initiatives.csv")
-# library(janitor)
 
-# Redundant ----
+library(googlesheets4)
 
-# initiatives <- initiatives %>%
-#  slice(9:n()) %>%
-#  setNames(as.character(initiatives[9,])) %>%
-#  janitor::clean_names()
-# initiatives <- initiatives[-1,]
-
-# initiatives <- initiatives %>%
-#  rename("name_of_initiative" = "name_of_initiative_organization")
-
-# initiatives_simple <- initiatives %>%
-#  select(-c("contact_name", "contact_email"))
-
-# initiatives_clean <- initiatives_simple %>%
-#  separate_rows(country, sep = "&|,")
-
-# initiatives <- initiatives %>%
-#  mutate(country = case_when(
-#    country == "democratic republic of congo" ~ "dem. rep. congo",
-#    country == "central african republic" ~ "central african rep.",
-#    country == "south sudan" ~ "s. sudan",
-#    country == "cote d'ivoire" ~ "côte d'ivoire",
-#    TRUE ~ country  # Keep other names unchanged
-#  ))
-
-# initiatives <- read_csv("initiatives_clean.csv")
-# colnames(initiatives)  # Check available column names
+sheet_url <- 'https://docs.google.com/spreadsheets/d/1A59ElYxr4Iq2v2M-PVhhusW3VcBF4bchDlGzzVSLgfg/edit?usp=sharing'
+initiatives <- read_sheet(sheet_url)
 
 # Standardizing country names ----
 
@@ -104,10 +77,7 @@ initiatives$country <- sapply(initiatives$country, standardize_country_names)
 # Check for any remaining mismatches
 print(setdiff(initiatives$country, africa$name))
 # If it prints "character(0)" you're good, else, update the mapping list with the differences
-
-initiatives2 <- read_csv("more_initiatives.csv")
-
-initiatives <- bind_rows(initiatives, initiatives2) %>% distinct()
+# the object 'africa' can be loaded from the first line of the server function in app.R
 
 
 
