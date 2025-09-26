@@ -25,7 +25,7 @@ ui <- fluidPage(
         actionLink("show_disclaimer", "Disclaimer for external links")
       )
     )
-  )
+  ),
 )
 
 # Define Server
@@ -60,7 +60,7 @@ server <- function(input, output, session) {
   
   # Define color scale
   color_pal <- colorFactor(
-    palette = colorRampPalette(c("#2EA847", "darkgreen"))(5),  # Light to dark green
+    palette = colorRampPalette(c("#ACE1AF", "darkgreen"))(5),  # Light to dark green
     domain = unique(africa$initiative_count),  # Ensures we map exact values, not ranges
   )
 
@@ -91,19 +91,11 @@ server <- function(input, output, session) {
         color = "darkgreen",  
         weight = 0.5,  
         stroke = TRUE,  
-        highlightOptions = highlightOptions(color = "darkgreen", weight = 2, bringToFront = TRUE),
+        highlightOptions = highlightOptions(color = "darkgreen", weight = 1.3, bringToFront = TRUE),
         popup = ~ifelse(
           initiative_count == 0,
-          paste(name, ":0 found"),
-          paste(name, ":", initiative_count, "found"))
-      ) %>%
-      addLegend(
-        position = "bottomright",
-        pal = color_pal,
-        values = africa$initiative_count[africa$initiative_count > 0],
-        title = "Initiatives Found",
-        opacity = 0.7,
-        labFormat = labelFormat(prefix = "About")
+          paste0(name, ": ", 0, " found"),
+          paste0(name, ": ", initiative_count, " found"))
       ) %>%
       setView(lng = 20, lat = 0, zoom = 3) %>%
       setMaxBounds(lng1 = -25, lat1 = -40, lng2 = 60, lat2 = 40)
@@ -116,7 +108,8 @@ server <- function(input, output, session) {
       return(datatable(
         data.frame(Message = "Initiatives will appear here."),
         options = list(dom = "t", paging = FALSE),
-        rownames = FALSE
+        rownames = FALSE,
+        escape = FALSE
       ))
     }
 
@@ -126,7 +119,7 @@ server <- function(input, output, session) {
 
     if (nrow(df) == 0) {
       return(datatable(
-        data.frame(Message = "No initiatives found for this country yet.<br>Would you like to suggest an initiative?"),
+        data.frame(Message = "No initiatives found for this country yet.<br>Would you like to suggest an initiative? <a href='mailto:marvin@underthemicroscope.net?subject=Initiative%20Suggestion&body=Please%20provide%20the%20following%20details%20for%20the%20suggested%20initiative:%0D%0A%0D%0AInitiative%20Name:%20%0D%0AWebsite%20URL:%20%0D%0ACountry/Countries:%20'>click here</a>"),
         options = list(dom = "t", paging = FALSE),
         rownames = FALSE,
         escape = FALSE
@@ -137,7 +130,7 @@ server <- function(input, output, session) {
       df %>% select("Name of Initiative" = name_of_initiative, Website),
       escape = FALSE,
       rownames = TRUE,
-      class = "compact stripe hover",
+      class = "compact stripe",
       options = list(
         dom = "tip",
         pageLength = 5,
